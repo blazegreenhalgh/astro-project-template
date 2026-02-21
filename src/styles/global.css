@@ -1,1 +1,107 @@
 @import "tailwindcss";
+
+@theme {
+  /* COLOURS */
+  /* PRIMARY */
+  --color-primary: var(--color-primary-600);
+  --color-primary-hover: var(--color-primary-700);
+  --color-primary-surface: var(--color-primary-50);
+  --color-primary-surface-1: var(--color-primary-100);
+  --color-primary-surface-2: var(--color-primary-200);
+  --color-primary-50: #fef1f9;
+  --color-primary-100: #fde6f4;
+  --color-primary-200: #feccea;
+  --color-primary-300: #fea3d8;
+  --color-primary-400: #fc6abd;
+  --color-primary-500: #f62e9a;
+  --color-primary-600: #e71b7f;
+  --color-primary-700: #c90d64;
+  --color-primary-800: #a60e52;
+  --color-primary-900: #8a1148;
+  --color-primary-950: #550227;
+
+  /* SECONDARY */
+  --color-secondary: var(--color-secondary-500);
+  --color-secondary-hover: var(--color-secondary-700);
+  --color-secondary-surface: var(--color-secondary-50);
+  --color-secondary-surface-1: var(--color-secondary-100);
+  --color-secondary-surface-2: var(--color-secondary-200);
+  --color-secondary-50: #fef1f9;
+  --color-secondary-100: #fde6f4;
+  --color-secondary-200: #feccea;
+  --color-secondary-300: #fea3d8;
+  --color-secondary-400: #fc6abd;
+  --color-secondary-500: #f62e9a;
+  --color-secondary-600: #e71b7f;
+  --color-secondary-700: #c90d64;
+  --color-secondary-800: #a60e52;
+  --color-secondary-900: #8a1148;
+  --color-secondary-950: #550227;
+
+  /* ACCENT */
+  --color-accent: var(--color-accent-600);
+  --color-accent-hover: var(--color-accent-700);
+  --color-accent-surface: var(--color-accent-50);
+  --color-accent-surface-1: var(--color-accent-100);
+  --color-accent-surface-2: var(--color-accent-200);
+  --color-accent-50: #fef1f9;
+  --color-accent-100: #fde6f4;
+  --color-accent-200: #feccea;
+  --color-accent-300: #fea3d8;
+  --color-accent-400: #fc6abd;
+  --color-accent-500: #f62e9a;
+  --color-accent-600: #e71b7f;
+  --color-accent-700: #c90d64;
+  --color-accent-800: #a60e52;
+  --color-accent-900: #8a1148;
+  --color-accent-950: #550227;
+
+  /* CANVAS (BACKGROUND) */
+  --color-canvas: var(--color-canvas-50);
+  --color-canvas-50: #ffffff;
+  --color-canvas-100: #f4f4f5;
+  --color-canvas-200: #e4e4e7;
+  --color-canvas-300: #d4d4d8;
+  --color-canvas-400: #a1a1aa;
+  --color-canvas-500: #71717a;
+  --color-canvas-600: #52525b;
+  --color-canvas-700: #3f3f46;
+  --color-canvas-800: #27272a;
+  --color-canvas-900: #18181b;
+  --color-canvas-950: #09090b;
+
+  /* SPACING */
+  --spacing-gutter: var(--gutter);
+}
+
+.container {
+  margin-inline: auto;
+}
+
+:root {
+  --gutter: 1rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --gutter: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --gutter: 3rem;
+  }
+}
