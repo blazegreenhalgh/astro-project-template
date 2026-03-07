@@ -1,100 +1,70 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   SOL STUDIOS TAILWIND DESIGN SYSTEM
+   Reusable foundation for SOL STUDIOS
+   Viewport scaling window: 400px → 1440px (all clamps target this range).
+   ========================================================================== */
+
+/* ==========================================================================
+   1. FONT FACES
+   Declare only weights actually used in the project.
+   ========================================================================== */
+
 @font-face {
   font-family: "Teko";
-  src: url("/fonts/Teko-Regular.woff2") format("truetype");
+  src: url("/fonts/Teko-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Teko";
+  src: url("/fonts/Teko-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Teko";
+  src: url("/fonts/Teko-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-@layer components {
-  .container {
-    margin-inline: auto;
-  }
-
-  button,
-  a {
-    font-family: var(--font-primary);
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-}
-
-@layer base {
-  body {
-    font-family: var(--font-sans);
-    font-weight: 400;
-    font-size: var(--text-md);
-  }
-  /* prettier-ignore */
-  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-    font-family: var(--font-primary);
-    font-weight: 700;
-    font-style: italic;
-    text-transform: uppercase;
-  }
-  h1,
-  .h1 {
-    font-size: var(--text-h1);
-    line-height: 1;
-  }
-  h2,
-  .h2 {
-    font-size: var(--text-h2);
-    line-height: 1;
-  }
-  h3,
-  .h3 {
-    font-size: var(--text-h3);
-    line-height: 1;
-  }
-  h4,
-  .h4 {
-    font-size: var(--text-h4);
-    line-height: 1;
-  }
-  h5,
-  .h5 {
-    font-size: var(--text-h5);
-    line-height: 1;
-  }
-  h6,
-  .h6 {
-    font-size: var(--text-h6);
-    line-height: 1;
-  }
-}
+/* ==========================================================================
+   2. THEME TOKENS
+   ========================================================================== */
 
 @theme {
-  /* #region / Fonts */
-  --font-sans: "Helvetica Neue", system-ui, sans-serif;
-  --font-primary: "Helvetica Neue", system-ui, sans-serif;
-  /* #endregion / Fonts */
+  /* --- Colour Reset ---
+     Wipe TW's default palette so only our tokens exist.
+     This keeps `bg-blue-500` etc. from compiling — intentional. */
+  --color-*: initial;
 
-  /* #region / Type Scales */
-  --heading-scale: 1.5; /* Uses H2 as base */
-  --text-h1: calc(var(--text-h2) * var(--heading-scale));
-  --text-h2: clamp(2rem, calc(1.133rem + 2.33vw), 5rem); /* This is the base */
-  --text-h3: calc(var(--text-h2) / var(--heading-scale));
-  --text-h4: calc(var(--text-h3) / var(--heading-scale));
-  --text-h5: calc(var(--text-h4) / var(--heading-scale));
-  --text-h6: calc(var(--text-h5) / var(--heading-scale));
+  /* --- Neutrals --- */
+  --color-white: #ffffff;
+  --color-black: #000000;
 
-  --text-xs: calc(0.75rem + (-0.1168709751 * ((100vw - 22.5rem) / 62.875)));
-  --text-sm: calc(0.8125rem + (0.0314609902 * ((100vw - 22.5rem) / 62.875)));
-  --text-md: calc(1rem + (0.125 * ((100vw - 22.5rem) / 62.875)));
-  --text-lg: calc(1.2rem + (0.299625 * ((100vw - 22.5rem) / 62.875)));
-  --text-xl: calc(1.44rem + (0.559000125 * ((100vw - 22.5rem) / 62.875)));
-  --text-xxl: calc(1.728rem + (0.9366671666 * ((100vw - 22.5rem) / 62.875)));
-  /* #endregion / Type Scales */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
 
-  /* #region / Colours */
-  /* PRIMARY */
+  /* --- Primary ---
+     TODO: These are placeholder-identical to secondary & accent.
+     Swap in real palettes before shipping. */
   --color-primary: var(--color-primary-600);
   --color-primary-hover: var(--color-primary-700);
   --color-primary-surface: var(--color-primary-50);
-  --color-primary-surface-1: var(--color-primary-100);
-  --color-primary-surface-2: var(--color-primary-200);
   --color-primary-50: #fef1f9;
   --color-primary-100: #fde6f4;
   --color-primary-200: #feccea;
@@ -107,12 +77,10 @@
   --color-primary-900: #8a1148;
   --color-primary-950: #550227;
 
-  /* SECONDARY */
-  --color-secondary: var(--color-secondary-500);
+  /* --- Secondary --- */
+  --color-secondary: var(--color-secondary-600);
   --color-secondary-hover: var(--color-secondary-700);
   --color-secondary-surface: var(--color-secondary-50);
-  --color-secondary-surface-1: var(--color-secondary-100);
-  --color-secondary-surface-2: var(--color-secondary-200);
   --color-secondary-50: #fef1f9;
   --color-secondary-100: #fde6f4;
   --color-secondary-200: #feccea;
@@ -125,12 +93,10 @@
   --color-secondary-900: #8a1148;
   --color-secondary-950: #550227;
 
-  /* ACCENT */
+  /* --- Accent --- */
   --color-accent: var(--color-accent-600);
   --color-accent-hover: var(--color-accent-700);
   --color-accent-surface: var(--color-accent-50);
-  --color-accent-surface-1: var(--color-accent-100);
-  --color-accent-surface-2: var(--color-accent-200);
   --color-accent-50: #fef1f9;
   --color-accent-100: #fde6f4;
   --color-accent-200: #feccea;
@@ -143,8 +109,9 @@
   --color-accent-900: #8a1148;
   --color-accent-950: #550227;
 
-  /* CANVAS (BACKGROUND) */
+  /* --- Canvas (backgrounds) --- */
   --color-canvas: var(--color-canvas-50);
+  --color-canvas-inverse: var(--color-canvas-900);
   --color-canvas-50: #ffffff;
   --color-canvas-100: #f4f4f5;
   --color-canvas-200: #e4e4e7;
@@ -154,12 +121,182 @@
   --color-canvas-600: #52525b;
   --color-canvas-700: #3f3f46;
   --color-canvas-800: #27272a;
-  --color-canvas-900: #18181b;
+  --color-canvas-900: #111112;
   --color-canvas-950: #09090b;
-  /* #endregion / Colours */
 
-  /* #region / Spacing */
+  /* --- Semantic text colours --- */
+  --color-light: var(--color-canvas-400);
+  --color-muted: var(--color-canvas-500);
+  --color-dark: var(--color-canvas-700);
+
+  /* --- Fonts --- */
+  --font-body: "Helvetica Neue", system-ui, sans-serif;
+  --font-display: "Teko", system-ui, sans-serif;
+
+  /* --- Type Scale (body) ---
+     All clamps: 400→1440px. Line-height is unitless (relative to font-size). */
+  --text-*: initial;
+  --text-xs: clamp(0.625rem, 0.577rem + 0.192vw, 0.75rem); /* 10px → 12px */
+  --text-sm: clamp(0.813rem, 0.789rem + 0.096vw, 0.875rem); /* 13px → 14px */
+  --text-md: clamp(1rem, 0.952rem + 0.192vw, 1.125rem); /* 16px → 18px */
+  --text-lg: clamp(1.25rem, 1.154rem + 0.385vw, 1.5rem); /* 20px → 24px */
+  --text-xl: clamp(1.5rem, 1.308rem + 0.769vw, 2rem); /* 24px → 32px */
+  --text-2xl: clamp(1.875rem, 1.587rem + 1.154vw, 2.625rem); /* 30px → 42px */
+
+  /* --- Type Scale (headings) ---
+     Modular scale ×1.33 from h2 base, precomputed.
+     Line-heights set in base layer (/ syntax unreliable with clamp). */
+  --text-h1: clamp(3.99rem, 3.223rem + 3.069vw, 5.985rem); /* 63.8px → 95.8px */
+  --text-h2: clamp(3rem, 2.423rem + 2.308vw, 4.5rem); /* 48px → 72px (base) */
+  --text-h3: clamp(
+    2.256rem,
+    1.822rem + 1.736vw,
+    3.384rem
+  ); /* 36.1px → 54.1px */
+  --text-h4: clamp(1.696rem, 1.37rem + 1.305vw, 2.544rem); /* 27.1px → 40.7px */
+  --text-h5: clamp(1.275rem, 1.03rem + 0.981vw, 1.912rem); /* 20.4px → 30.6px */
+  --text-h6: clamp(0.959rem, 0.774rem + 0.737vw, 1.437rem); /* 15.3px → 23px */
+
+  /* --- Fluid Spacing --- */
+  --spacing-xs: clamp(0.25rem, 0.154rem + 0.385vw, 0.5rem); /*  4px →  8px */
+  --spacing-sm: clamp(0.5rem, 0.308rem + 0.769vw, 1rem); /*  8px → 16px */
+  --spacing-md: clamp(1rem, 0.808rem + 0.769vw, 1.5rem); /* 16px → 24px */
+  --spacing-lg: clamp(1.5rem, 1.115rem + 1.538vw, 2.5rem); /* 24px → 40px */
+  --spacing-xl: clamp(2rem, 1.423rem + 2.308vw, 3.5rem); /* 32px → 56px */
+  --spacing-2xl: clamp(3rem, 2.231rem + 3.077vw, 5rem); /* 48px → 80px */
+
+  /* --- Section Spacing --- */
+  --spacing-section-sm: clamp(3rem, 2.231rem + 3.077vw, 5rem); /* 48px → 80px */
+  --spacing-section-md: clamp(
+    4rem,
+    2.654rem + 5.385vw,
+    7.5rem
+  ); /* 64px → 120px */
+  --spacing-section-lg: clamp(
+    5rem,
+    3.077rem + 7.692vw,
+    10rem
+  ); /* 80px → 160px */
+  --spacing-section-xl: clamp(6rem, 3.5rem + 10vw, 12.5rem); /* 96px → 200px */
+
+  /* --- Layout --- */
+  --gutter: clamp(1rem, 0.231rem + 3.077vw, 3rem); /* 16px → 48px */
   --spacing-gutter: var(--gutter);
-  --gutter: clamp(1rem, calc(0.3333rem + 0.2083vw), 3rem);
-  /* #endregion / Spacing */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px; /* <-- Set to same as --content-width */
+  --content-width: 1440px;
+  --spacing-content-width: var(--content-width);
+
+  /* --- Border Radius --- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* --- Shadows / Elevation --- */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.08);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.12);
+  --shadow-lg: 0 8px 30px rgb(0 0 0 / 0.18);
+  --shadow-glow: 0 0 80px rgb(231 27 127 / 0.35);
+
+  /* --- Transitions --- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
 }
+
+/* ==========================================================================
+   3. BASE LAYER
+   Only styles that TW preflight doesn't already cover.
+   Preflight handles: box-sizing, margin:0, img/media resets.
+   ========================================================================== */
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: var(--text-md);
+    background-color: var(--color-canvas-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  /* prettier-ignore */
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  h1,
+  .h1 {
+    font-size: var(--text-h1);
+    line-height: 0.9;
+  }
+  h2,
+  .h2 {
+    font-size: var(--text-h2);
+    line-height: 0.95;
+  }
+  h3,
+  .h3 {
+    font-size: var(--text-h3);
+    line-height: 1;
+  }
+  h4,
+  .h4 {
+    font-size: var(--text-h4);
+    line-height: 1.05;
+  }
+  h5,
+  .h5 {
+    font-size: var(--text-h5);
+    line-height: 1.1;
+  }
+  h6,
+  .h6 {
+    font-size: var(--text-h6);
+    line-height: 1.15;
+  }
+}
+
+/* ==========================================================================
+   4. UTILITIES
+   Custom @utility blocks so they work with hover:, after:, etc.
+   ========================================================================== */
+
+@utility container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
+/* ==========================================================================
+   5. PROJECT-SPECIFIC
+   Styles that are NOT reusable across projects live here.
+   ========================================================================== */
