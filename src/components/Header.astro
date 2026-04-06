@@ -1,0 +1,73 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<nav
+  class="fixed top-0 z-1000 w-full border-b border-accent/20 bg-canvas px-gutter py-4"
+>
+  <div class="container max-w-[calc(var(--content-width)*1.2)]">
+    <div class="flex items-center justify-between">
+      <a href="/">
+        <img src="/iamnsa-white.svg" class="w-30" />
+      </a>
+      <button
+        id="menu-toggle"
+        aria-expanded="false"
+        class="cursor-pointer lg:hidden"
+      >
+        <Icon name="mobile-menu" class="h-auto w-7 text-white" />
+      </button>
+      <div
+        id="menu"
+        class="absolute top-full left-0 z-100 -mt-1 grid w-full grid-rows-[0fr] overflow-hidden border-b bg-canvas px-gutter duration-300 data-[open='true']:border-white/20 data-[open=true]:grid-rows-[1fr] lg:static lg:flex lg:justify-end lg:border-b-0 lg:bg-transparent lg:px-0"
+        data-open="false"
+      >
+        <div
+          class="min-h-0 lg:pointer-events-none lg:flex lg:w-fit lg:items-center lg:justify-center"
+        >
+          <ul
+            class="flex flex-col gap-8 py-8 text-white lg:pointer-events-auto lg:flex-row lg:gap-lg lg:py-0 lg:text-md"
+          >
+            <li class="relative">
+              <a href="/" class="header-link">Home</a>
+            </li>
+            <li class="relative">
+              <a href="/about" class="header-link">About</a>
+            </li>
+            <li class="relative">
+              <a href="/services" class="header-link">Services</a>
+            </li>
+            <li class="relative">
+              <a
+                class="header-link"
+                href="https://www.instagram.com/iamnsa/"
+                target="_blank"
+                rel="noopener noreferrer">Gallery</a>
+            </li>
+            <li class="relative">
+              <a href="/contact" class="header-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  @reference '../styles/global.css';
+  .header-link {
+    @apply font-mono text-sm text-white/80 uppercase duration-300 after:absolute after:bottom-0 after:left-0 after:h-full after:w-full after:content-[''] hover:text-white hover:after:w-full;
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+  toggle?.addEventListener("click", () => {
+    if (!menu) return;
+    const isOpen = menu?.dataset.open === "true";
+    menu.dataset.open = isOpen ? "false" : "true";
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+  });
+</script>
