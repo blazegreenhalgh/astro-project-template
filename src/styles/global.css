@@ -219,7 +219,7 @@
 
 @layer base {
   body {
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     font-weight: 400;
     font-size: var(--text-md);
     background-color: var(--color-canvas-dark);
@@ -246,11 +246,9 @@
 
   /* prettier-ignore */
   h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-    font-family: var(--font-primary);
+    font-family: var(--font-display);
     font-weight: 700;
-    font-style: italic;
     color: white;
-    text-transform: uppercase;
   }
 
   h1,
