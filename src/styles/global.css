@@ -6,38 +6,11 @@
    Viewport scaling window: 400px → 1440px (all clamps target this range).
    ========================================================================== */
 
-/* ==========================================================================
-   1. FONT FACES
-   Declare only weights actually used in the project.
-   ========================================================================== */
-
-@font-face {
-  font-family: "Teko";
-  src: url("/fonts/Teko-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Teko";
-  src: url("/fonts/Teko-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Teko";
-  src: url("/fonts/Teko-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ==========================================================================
-   2. THEME TOKENS
-   ========================================================================== */
-
 @theme {
+  /* --- Fonts --- */
+  --font-body: var(--font-roboto), system-ui, sans-serif;
+  --font-display: var(--font-roboto), system-ui, sans-serif;
+
   /* --- Colour Reset ---
      Wipe TW's default palette so only our tokens exist.
      This keeps `bg-blue-500` etc. from compiling — intentional. */
@@ -128,10 +101,6 @@
   --color-light: var(--color-canvas-400);
   --color-muted: var(--color-canvas-500);
   --color-dark: var(--color-canvas-700);
-
-  /* --- Fonts --- */
-  --font-body: "Helvetica Neue", system-ui, sans-serif;
-  --font-display: "Teko", system-ui, sans-serif;
 
   /* --- Type Scale (body) ---
      All clamps: 400→1440px. Line-height is unitless (relative to font-size). */

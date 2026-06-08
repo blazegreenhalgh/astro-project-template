@@ -1,6 +1,8 @@
 ---
-import Header from "../components/Header.astro";
 import "../styles/global.css";
+import { Font } from "astro:assets";
+
+import Header from "../components/Header.astro";
 
 const { title, description } = Astro.props;
 ---
@@ -14,6 +16,7 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <Font cssVariable="--font-roboto" />
   </head>
   <body>
     <Header />
