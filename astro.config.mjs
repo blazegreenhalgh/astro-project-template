@@ -7,6 +7,8 @@ import icon from "astro-icon";
 
 import netlify from "@astrojs/netlify";
 
+import astroInspectClip from "astro-inspect-clip";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -19,6 +21,6 @@ export default defineConfig({
       cssVariable: "--font-roboto",
     },
   ],
-  integrations: [icon()],
+  integrations: [icon(), astroInspectClip()],
   adapter: netlify(),
 });
